@@ -7,15 +7,11 @@ import asyncio
 import chess.engine
 import time
 color = input("what color do you want to be?")
-time = 1
 game = "middlegame"
 from IPython.display import SVG
-x = 1
-ponderedmovecoorect =  False
 board = chess.Board()
 print (board)
-move = 1011
-ponder = 1
+move = 0
 chess.svg.piece(chess.Piece.from_symbol("R"))
 chess.svg.piece(chess.Piece.from_symbol("r"))
 chess.svg.piece(chess.Piece.from_symbol("Q"))
@@ -350,202 +346,36 @@ movehistory =[]
 board = chess.Board()
 boardvalue = init_evaluate_board()
 i = 1
-if boardvalue > 25:
-    x = 5
-if boardvalue > 11:
-    x = 3
-if boardvalue == 10:
-    x = 5
-if boardvalue < 10:
-    x = 5
+x = 5 
 
-if move == 1:
-    while not board.is_game_over(claim_draw=True):
-    #while i < 100000000000000:
-        if chess.WHITE:
-           #break
-           mov = selectmove(x)
-           make_move(mov)
-           SVG(chess.svg.board(board=board,size=400,lastmove=mov))
-           print (board)
-           i = i + 1
 if move == 0:
     print (board)
-    #ponder(0)
-    #if chess.WHITE or
     if color == "black":
         while not board.is_game_over(claim_draw=True):
            ponder = 0
            mov = selectmove(x)
            make_move(mov)
            print (mov)
-           #if ponderedmovecoorect == False:
-                #mov = selectmove(x)
-                #make_move(mov)
-                #print (mov)
-           #if ponderedmovecoorect == True:
-                #make_move(ponderedmove)
-                #print (ponderedmove)
            SVG(chess.svg.board(board=board,size=400,lastmove=mov))
            print (board)
-           
-           i = i + 1
-           ponder = 1
-           #pondermov = selectmove(x-1)
-           #make_move(pondermov)
-           #ponderedmove = selectmove(x+1)
            playermove = input ("what is your move?")
-           #playermove[0] = chess.FILE_NAME
-           #playermove[1] = chess.RANK_NAME
-           #frommovep= chess.FILE_NAME+chess.RANK_NAME
-           #if playermove == pondermov:
-               #ponderedmovecoorect = True
-           #else 
-               #board.pop()
                         
            board.push_san(playermove)
            print(board)
-    #if chess.BLACK:
-        #playermove = input ("what is your move?")
-        #playermove[0] = chess.FILE_NAME
-        #playermove[1] = chess.RANK_NAME
-        #frommovep= chess.FILE_NAME+chess.RANKNAME
-        #board.push_san(frommovep)
-        #print(board)
     if color == "white":
            while not board.is_game_over(claim_draw=True):
                ponder = 1
                playermove = input ("what is your move?")
-               #playermove[0] = chess.FILE_NAME
-               #playermove[1] = chess.RANK_NAME
-               #frommovep= chess.FILE_NAME+chess.RANKNAME
-               #pondermov = selectmove(x-1)
-               #make_move(pondermov)
-               #ponderedmove = selectmove(x+1)
                board.push_san(playermove)
-               #if playermove == pondermov:
-                   #ponderedmovecoorect = True
-               #else 
-                   #board.pop()
                print (board)
                ponder = 0
                mov = selectmove(x)
                make_move(mov)
                print (mov)
-               #if ponderedmovecoorect == False:
-                   #mov = selectmove(x)
-                   #make_move(mov)
-                   #print (mov)
-               #if ponderedmovecoorection == True:
-                   #make_move(ponderedmove)
-                   #print (ponderedmove)
                SVG(chess.svg.board(board=board,size=400,lastmove=mov))
-               #print (board)
-               
-               i = i + 1
                print(board)
-       #continuemov = selectmove(4)
-       #make_move(mov)
-       #mov = selectmove(4)
-       #make_move(mov)
-       #SVG(chess.svg.board(board=board,size=400,lastmove=mov))  
-#while not board.is_game_over(claim_draw=True):
-    #if board.turn:
-        #movehistory =[]
-        #board = chess.Board()
-        #mov = selectmove(3)
-        #board.push(mov)
-        #SVG(chess.svg.board(board=board,size=400))
-        #print (board)
-    #else:
-        #board.push_san(player.move)
-        #print (board)
-if move == 10:
-    color = black
-    #print (board)
-    #if chess.WHITE or
-    if color == "black":
-        while not board.is_game_over(claim_draw=True):
-           mov = selectmove(x)
-           make_move(mov)
-           SVG(chess.svg.board(board=board,size=400,lastmove=mov))
-           #print (board)
-           print (mov)
-           i = i + 1
-           playermove = input ("what is your move?")
-           #playermove[0] = chess.FILE_NAME
-           #playermove[1] = chess.RANK_NAME
-           #frommovep= chess.FILE_NAME+chess.RANK_NAME
-           board.push_san(playermove)
-           #print(board)
-    #if chess.BLACK:
-        #playermove = input ("what is your move?")
-        #playermove[0] = chess.FILE_NAME
-        #playermove[1] = chess.RANK_NAME
-        #frommovep= chess.FILE_NAME+chess.RANKNAME
-        #board.push_san(frommovep)
-        #print(board)
-    if color == "white":
-           while not board.is_game_over(claim_draw=True):
-               playermove = input ("what is your move?")
-               #playermove[0] = chess.FILE_NAME
-               #playermove[1] = chess.RANK_NAME
-               #frommovep= chess.FILE_NAME+chess.RANKNAME
-               board.push_san(playermove)
-               mov = selectmove(x)
-               make_move(mov)
-               SVG(chess.svg.board(board=board,size=400,lastmove=mov))
-               #print (board)
-               print (mov)
-               i = i + 1
-               #print(board)
+       
 
-#part 2
-
-if move==3:
-    playCOM()
-if move==101:
-    playcomputer()
-
-def playcomputer():
-    #import stockfish
-    movehistory =[]
-    board = chess.Board()
-    while not board.is_game_over(claim_draw=True):
-        mov = selectmove(x)
-        make_move(mov)
-        print (mov)
-        print (board)  
-        movehistory.append(mov)        
-
-        #board.push_san(str(stockfish.get_best_move()))
-        print(board)
-    print(movehistory)
-#print(game, file=open("test.pgn", "w"), end="\n\n")
-#SVG(chess.svg.board(board=board,size=400))
-    print (board)
-    while board.is_game_over(claim_draw=False):
-        playcomputer()
-
- #def playCOM():
-     #import chess.pgn
-     #import datetime
-     #import chess.uci
-     #engine = chess.uci.popen_engine("/urs/bin/komodo-12.1.1-64bit")
-     #engine.uci()
-     #engine.name
-     #while not board.is_game_over(claim_draw=True):
-         #board = chess.Board()
-         #mov = selectmove(3)   
-         #make_move(mov)
-         #movehistory.append(mov)
-         #engine.position(board)
-         #move = engine.go(movetime=1000).bestmove
-         #movehistory.append(move)
-         #board.push(move)
-     #while board.is_game_over(claim_draw=False):
-         #print(board)
-         #playCOM()
 def playstockfish():
     board = chess.Board()
     engine = chess.engine.SimpleEngine.popen_uci("/Program Files/stockfish_20090216_x64")
