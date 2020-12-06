@@ -1,0 +1,2 @@
+# Lightning-chess-engine-1.1
+A chess engine built on a simple Alpha-Beta and a Quiesce search, with null move and piece tables evaluation.  This chess engine is based on code from https://andreasstckl.medium.com/writing-a-chess-program-in-one-day-30daff4610ec. However, I had added a more suitable UI and endgame "evaluation" that currently only consists of an endgame king table and a gaviota database for probing. Also note that this chess engine uses a libary from python called python-chess, which provides it with basic move generation and others.
